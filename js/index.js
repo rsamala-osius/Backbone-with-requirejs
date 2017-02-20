@@ -2,11 +2,15 @@ define([
     'backbone',
     'jquery',
     'bootstrap',
-    'myTemplates/aboutus-body-template'], 
-    function (Backbone, $, BS, abtTemplate) {
+    'myTemplates/aboutus-body-template',
+    'myTemplates/contact-us-template',
+    'myTemplates/header-template',
+    'myTemplates/main-body-template'
+    ], 
+    function (Backbone, $, BS, abtTemplate,contactTemplate,headerTemplate,bodyTemplate) {
 
     var mainView = Backbone.View.extend({
-        template: abtTemplate,
+        template: headerTemplate,
         //el: '#header-template',
         initialize: function () {
             console.log('View initialized');
@@ -19,36 +23,43 @@ define([
         }
     });
     var bodyView = Backbone.View.extend({
-        // initialize: function () {
-        //     console.log('BodyView initialized');
-        //     this.render();
-        // },
-        // render: function () {
-        //     var bTemplate = _.template($('#main-body-template').html(), {});
-        //     var model = (this.model.toJSON());
-        //     this.$el.html(bTemplate(model));
-        // }
+        template: bodyTemplate,
+        initialize: function () {
+            console.log('BodyView initialized');
+            this.render();
+        },
+        render: function () {
+            //var bTemplate = _.template($('#main-body-template').html(), {});
+            var model = (this.model.toJSON());
+            //this.$el.html(bTemplate(model));
+            this.$el.html(this.template(model));
+
+        }
     });
     var aboutView = Backbone.View.extend({
-        // initialize: function () {
-        //     console.log('AboutView initialized');
-        //     this.render();
-        // },
-        // render: function () {
-        //     var abTemplate = _.template($('#aboutus-body-template').html(), {});
-        //     this.$el.html(abTemplate());
-        // }
+        template: abtTemplate,
+        initialize: function () {
+            console.log('AboutView initialized');
+            this.render();
+        },
+        render: function () {
+            // var abTemplate = _.template($('#aboutus-body-template').html(), {});
+            // this.$el.html(abTemplate());
+            this.$el.html(this.template());
+        }
     });
 
     var contactView = Backbone.View.extend({
-        // initialize: function () {
-        //     console.log('AboutView initialized');
-        //     this.render();
-        // },
-        // render: function () {
-        //     var abTemplate = _.template($('#contact-us-template').html(), {});
-        //     this.$el.html(abTemplate());
-        // }
+        template: contactTemplate,
+        initialize: function () {
+            console.log('AboutView initialized');
+            this.render();
+        },
+        render: function () {
+            // var abTemplate = _.template($('#contact-us-template').html(), {});
+            // this.$el.html(abTemplate());
+            this.$el.html(this.template());
+        }
     });
 
     var mainModel = Backbone.Model.extend({
