@@ -5,12 +5,16 @@ requirejs.config({
         backbone: 'backbone/backbone-min',
         underscore: 'underscore/underscore-min',
         bootstrap: 'bootstrap/dist/js/bootstrap.min',
+        handlebars: 'handlebars/dist/handlebars',
         index:'../js/index'
     },
     shim: {
         'backbone': {
             deps: ['jquery', 'underscore'],
             exports: 'backbone'
+        },
+        'handlebars':{
+            exports: 'Handlebars'
         },
         'underscore': {
             exports: '_'
@@ -21,6 +25,6 @@ requirejs.config({
         }
     }
 });
-require(['index'],function(index){
-    console.log("hello");
+require(['index','handlebars'],function(index,Handlebars){
+    console.log("index file loaded");
 });

@@ -4,13 +4,18 @@
   "description": "Backbone with requirejs -- handlebar templates",
   "main": "index.js",
   "dependencies": {
+    "backbone": "latest",
+    "bootstrap": "latest",
+    "grunt-cli": "^1.2.0",
     "handlebars": "^4.0.6",
-    "underscore" : "latest",
-    "backbone" : "latest",
-    "jquery" : "latest",
-    "bootstrap" :"latest"
+    "jquery": "latest",
+    "requirejs": "^2.3.3",
+    "underscore": "latest"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-contrib-handlebars": "^1.0.0",
+    "grunt": "latest"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

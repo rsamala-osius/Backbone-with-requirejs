@@ -1,8 +1,10 @@
 define([
     'backbone',
     'jquery',
-    'bootstrap'
-], function (Backbone, $, BS) {
+    'bootstrap',
+    'handlebars',
+    '../templates/all-templates'
+], function (Backbone, $, BS, Handlebars, templates) {
 
     var mainView = Backbone.View.extend({
         initialize: function () {
