@@ -10,19 +10,17 @@ requirejs.config({
     shim: {
         'backbone': {
             deps: ['jquery', 'underscore'],
-            //exports: 'backbone'
+            exports: 'backbone'
         },
-        // 'underscore': {
-        //     exports: '_'
-        // },
+        'underscore': {
+            exports: '_'
+        },
         'bootstrap': {
             deps: ['jquery'],
-           // exports: 'Bootstrap'
+           exports: 'Bootstrap'
         }
     }
 });
 require(['index'],function(index){
     console.log("hello");
 });
-
-
