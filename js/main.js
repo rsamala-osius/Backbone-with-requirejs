@@ -1,11 +1,11 @@
 requirejs.config({
-    baseUrl: '../bb/js/lib',
+    baseUrl: '../bb/node_modules/',
     paths: {
-        jquery: 'jquery',
-        backbone: 'backbone',
-        underscore: 'underscore',
-        bootstrap: 'bootstrap',
-        index:'../index'
+        jquery: 'jquery/dist/jquery',
+        backbone: 'backbone/backbone-min',
+        underscore: 'underscore/underscore-min',
+        bootstrap: 'bootstrap/dist/js/bootstrap.min',
+        index:'../js/index'
     },
     shim: {
         'backbone': {
