@@ -6,9 +6,20 @@ module.exports = function (grunt) {
     // Handlebars compilation task
     handlebars: {
       compile: {
-        files: {
-          'templates/all-templates.js': 'templates/*.hbs'
-        }
+        files: [
+          {
+            expand: true,
+            cwd: 'templates',
+            src: ['*.hbs'],
+            dest: 'templates',
+            ext: '.js',
+            extDot: 'first'
+          }
+        ]
+      },
+      options: {
+        namespace: false,
+        amd: true
       }
     }
   });

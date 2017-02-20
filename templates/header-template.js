@@ -1,0 +1,7 @@
+define(['handlebars'], function(Handlebars) {
+
+return Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "        <nav class=\"navbar navbar-inverse\">\r\n            <div class=\"container\">\r\n                <div class=\"navbar-header\">\r\n                    <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\r\n                        aria-controls=\"navbar\">\r\n                        <span class=\"sr-only\">Toggle navigation</span>\r\n                        <span class=\"icon-bar\"></span>\r\n                        <span class=\"icon-bar\"></span>\r\n                        <span class=\"icon-bar\"></span>\r\n                        </button>\r\n                        <a class=\"navbar-brand\" href=\"#\">Project name</a>\r\n                </div>\r\n                <div id=\"navbar\" class=\"collapse navbar-collapse\">\r\n                    <ul class=\"nav navbar-nav\">\r\n                        <li class=\"active\"><a href=\"#Home\">Home</a></li>\r\n                        <li><a href=\"#about\">About</a></li>\r\n                        <li><a href=\"#contact\">Contact</a></li>\r\n                    </ul>\r\n                </div>\r\n                <!--/.nav-collapse -->\r\n            </div>\r\n        </nav>";
+},"useData":true})
+
+});
