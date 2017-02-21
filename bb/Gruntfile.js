@@ -24,4 +24,5 @@ module.exports = function (grunt) {
     }
   });
   grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.registerTask('default', ['handlebars']);
 };
