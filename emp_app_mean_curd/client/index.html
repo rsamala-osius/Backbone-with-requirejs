@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Employee</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="assests/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="assests/js/jquery.js"></script>
+    <script type="text/javascript" src="assests/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assests/js/angular.js"></script>
+    <script type="text/javascript" src="assests/js/angular-route.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers/controllers.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                    	<li role="presentation" class="active"><a href="/employees">Employee List</a></li>
+                    	<li role="presentation"><a href="/employees/create">Add New Employee</a></li>
+                    </ul>
+                </nav>
+                <h3 class="text-muted">MEAN STACK Web Application using CURD operations</h3>
+            </div>
+            <div ng-view></div>
+            <footer class="footer well well-sm">
+            	<p>@2017 MEAN APP</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
