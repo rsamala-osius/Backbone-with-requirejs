@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             expand: true,
             cwd: 'templates',
             src: ['*.hbs'],
-            dest: 'templates',
+            dest: 'templates/build',
             ext: '.js',
             extDot: 'first'
           }
@@ -32,9 +32,20 @@ module.exports = function (grunt) {
           ext: '.css'
         }]
       }
-    }
+    },
+    watch: {
+      scripts: {
+        files: ['templates/*.hbs'],
+        tasks: ['handlebars'],
+        options: {
+          spawn: false,
+          livereload: true
+        },
+      },
+    },
   });
   grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['handlebars', 'sass']);
 };

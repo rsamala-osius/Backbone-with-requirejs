@@ -25,19 +25,22 @@ define([
             return o;
         };
 
-        var bodyView = Backbone.View.extend({
-            template: bodyTemplate,
+        var mainView = Backbone.View.extend({
+            template: headerTemplate,
+            //el: '#header-template',
             initialize: function () {
-                console.log('BodyView initialized');
+                console.log('View initialized');
                 this.render();
             },
             render: function () {
-                //var bTemplate = _.template($('#main-body-template').html(), {});
-                var model = (this.model.toJSON());
-                //this.$el.html(bTemplate(model));
-                this.$el.html(this.template(model));
+                // var hTemplate = _.template($('#header-template').html(), {});
 
+                this.$el.html(this.template());
             }
         });
-        
+       
+      
+       
+   
+
     });

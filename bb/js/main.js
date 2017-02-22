@@ -7,7 +7,17 @@ requirejs.config({
         bootstrap: 'bootstrap/dist/js/bootstrap.min',
         handlebars: 'handlebars/dist/handlebars',
         index:'../js/index',
-        myTemplates: '../templates/'
+        myTemplates: '../templates/build',
+        views:'../js/views',
+        models:'../js/models',
+        collections:'../js/collection',
+        AppRouter:'../js/routes/routes',
+        app:'../js/app',
+        headerView : '../js/views/mainHeaderView',
+        aboutUsView : '../js/views/aboutUsView',
+        bodyView : '../js/views/bodyView',
+        footerView : '../js/views/footerView',
+        signUpView : '../js/views/signUpView'
     },
     shim: {
         'backbone': {
@@ -26,6 +36,7 @@ requirejs.config({
         }
     }
 });
-require(['index'],function(index){
+require(['app'],function(app){
+    app.initialize();
     console.log("index file loaded");
 });
