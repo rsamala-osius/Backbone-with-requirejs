@@ -1,11 +1,14 @@
 define([
     'jquery',
     'backbone',
-    'myTemplates/contact-us-template'
-], function ($, Backbone, contactTemplate) {
+    'myTemplates/contact-us-template',
+    'models/signupModel',
+    'collections/registerCollection'
+], function ($, Backbone, contactTemplate, signupModel, regCollection) {
     'use strict';
     var contactView = Backbone.View.extend({
         template: contactTemplate,
+        collection: new regCollection(),
         events: {
             'submit #signupform': 'singupAction'
         },
@@ -18,7 +21,11 @@ define([
                 event.preventDefault();
             }
             var data = $(event.currentTarget).serializeObject();
+            var regModel = new signupModel(data);
             console.log(data);
+            console.log(regModel);
+            this.collection.add(regModel);
+            console.log(this.collection);
         },
 
         render: function () {

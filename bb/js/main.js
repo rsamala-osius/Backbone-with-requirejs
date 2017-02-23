@@ -10,7 +10,7 @@ requirejs.config({
         myTemplates: '../templates/build',
         views:'../js/views',
         models:'../js/models',
-        collections:'../js/collection',
+        collections:'../js/collections',
         AppRouter:'../js/routes/routes',
         app:'../js/app',
         headerView : '../js/views/mainHeaderView',
