@@ -1,44 +1,75 @@
 define([
-    'backbone',
     'jquery',
-    'bootstrap',
-    'myTemplates/aboutus-body-template',
-    'myTemplates/contact-us-template',
-    'myTemplates/header-template',
-    'myTemplates/main-body-template',
-    'myTemplates/footer'
-],
-    function (Backbone, $, BS, abtTemplate, contactTemplate, headerTemplate, bodyTemplate, footerTemplate) {
-        $.fn.serializeObject = function () {
-            var o = {};
-            var a = this.serializeArray();
-            $.each(a, function () {
-                if (o[this.name]) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
-                    }
-                    o[this.name].push(this.value || '');
-                } else {
-                    o[this.name] = this.value || '';
-                }
-            });
-            return o;
-        };
+    'underscore',
+    'backbone',
+    'myTemplates/signup-template',
+    'models/signupModel',
+    'collections/registerCollection'
+], function ($, _, Backbone, signupTemplate, signupModel, regCollection) {
+    'use strict';
+    var signUpView = Backbone.View.extend({
+        template: signupTemplate,
+        collection: new regCollection(),
+        events: {
+            'submit #signupform': 'singupAction'
+        },
+        initialize: function () {
+            console.log('signUpView initialized');
+            this.data = this.data || {};
+            console.log(this);
+            this.render();
+        },
+        singupAction: function (event) {
+            if (event) {
+                event.preventDefault();
+            }
+            var formData = $(event.currentTarget).serializeObject();
+            var regModel = new signupModel();
+            console.log(formData);
+            regModel.on('invalid',  this.saveErrorCallback);
 
-        var mainView = Backbone.View.extend({
-            template: headerTemplate,
-            //el: '#header-template',
-            initialize: function () {
-                console.log('View initialized');
-                this.data = this.data || {};
-                this.render();
-            },
-            render: function () {
-                // var hTemplate = _.template($('#header-template').html(), {});
-                t
-                this.data.message = "hellow";
-                this.$el.html(this.template(this.data));
+            regModel.save(formData, {
+                //attrs: $.extend(true, {}, formData),
+                success: _.bind(this.saveSuccessCallback,this),
+                error: _.bind(this.saveErrorCallback,this)
+            });
+        },
+        saveSuccessCallback: function (model, reponse) {
+            this.collection.add(model);
+            console.log(this.collection);
+        },
+        saveErrorCallback: function (model, response) {
+            console.log(model);
+            console.log(response);
+            console.log(this);
+            // this.data = this.data || {};
+            // this.data.errorMessage = "Errors";
+        },
+
+        render: function () {
+            // var abTemplate = _.template($('#contact-us-template').html(), {});
+            // this.$el.html(abTemplate());
+            this.data.message = "Hello";
+            console.log(this.data);
+            console.log(this.template);
+            this.$el.html(this.template(this.data));
+        }
+    });
+    $.fn.serializeObject = function () {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
             }
         });
-       
-    });
+        return o;
+    };
+
+    return signUpView;
+});

@@ -14,8 +14,9 @@ define([
             'submit #signupform': 'singupAction'
         },
         initialize: function () {
-            console.log('AboutView initialized');
+            console.log('contactView initialized');
             this.data = this.data || {};
+            console.log(this);
             this.render();
         },
         singupAction: function (event) {
@@ -26,18 +27,13 @@ define([
             var regModel = new signupModel();
             console.log(formData);
             regModel.on('invalid',  this.saveErrorCallback);
-            // function (model, error) {
-            //     // console.log(model.get("email") + " " + error);
-            //     var keys = _.keys(model.attributes);
-            //     console.log(keys);
-            //     console.log(model);
-            //     console.log(error[0]);
-            // });
+
             regModel.save(formData, {
-                attrs: $.extend(true, {}, formData),
-                success: _.bind(this.saveSuccessCallback, this),
-                error: _.bind(this.saveErrorCallback, this)
+                //attrs: $.extend(true, {}, formData),
+                success: _.bind(this.saveSuccessCallback,this),
+                error: _.bind(this.saveErrorCallback,this)
             });
+            this.render();
 
         },
         saveSuccessCallback: function (model, reponse) {
@@ -49,7 +45,6 @@ define([
             console.log(response);
             // this.data = this.data || {};
             // this.data.errorMessage = "Errors";
-            this.render();
         },
 
         render: function () {

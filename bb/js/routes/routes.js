@@ -50,8 +50,8 @@ define(['backbone'], function (Backbone) {
             });
         },
         viewSignUP: function () {
-            require(['views/ContactUsView'], function (ContactView) {
-                var contactView = new ContactView({ el: '#body' });
+            require(['views/signUpView'], function (signUpView) {
+                var contactView = new signUpView({ el: '#body' });
                 contactView.$el.find('#loginbox').hide();
                 contactView.$el.find('#signupbox').show();
                 console.log("viewing SignUP");

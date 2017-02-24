@@ -6,3 +6,4 @@ nbproject/
 .sass-cache/
 *.map
 templates/build/
+css/*.css
