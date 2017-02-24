@@ -14,6 +14,7 @@ define([
         },
         render: function () {
             Handlebars.registerPartial('carousel_partial', advTemplate);
+            console.log(this.model.toJSON());
             this.$el.html(this.template(this.model.toJSON()));
         }
     });

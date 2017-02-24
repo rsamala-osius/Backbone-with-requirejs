@@ -30,17 +30,15 @@ define([
             //el: '#header-template',
             initialize: function () {
                 console.log('View initialized');
+                this.data = this.data || {};
                 this.render();
             },
             render: function () {
                 // var hTemplate = _.template($('#header-template').html(), {});
-
-                this.$el.html(this.template());
+                t
+                this.data.message = "hellow";
+                this.$el.html(this.template(this.data));
             }
         });
        
-      
-       
-   
-
     });

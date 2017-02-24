@@ -9,6 +9,8 @@ define(['backbone'], function (Backbone) {
             'about/': 'viewAbout',
             'contact': 'viewContact',
             'contact/': 'viewContact',
+            'signUp': 'viewSignUP',
+            'signUp/': 'viewSignUP',
             'edit/:userid': 'editUser',
             'edit/:userid/': 'editUser',
             '*other': 'viewHome'
@@ -29,7 +31,7 @@ define(['backbone'], function (Backbone) {
 
         viewHome: function () {
             require(['views/bodyView', 'models/bodyModel'], function (bodyView, bodyModel) {
-                new bodyView({ el: '#body', model:new  bodyModel() });
+                new bodyView({ el: '#body', model: new bodyModel() });
                 console.log("body");
             });
 
@@ -37,14 +39,22 @@ define(['backbone'], function (Backbone) {
         viewAbout: function () {
             require(['views/aboutUsView'], function (AboutView) {
                 var aboutView = new AboutView({ el: '#body' });
-                console.log("viewAbout");
+                console.log("viewing About");
             });
 
         },
         viewContact: function () {
             require(['views/ContactUsView'], function (ContactView) {
                 var contactView = new ContactView({ el: '#body' });
-                console.log("viewContact");
+                console.log("viewing Contact");
+            });
+        },
+        viewSignUP: function () {
+            require(['views/ContactUsView'], function (ContactView) {
+                var contactView = new ContactView({ el: '#body' });
+                contactView.$el.find('#loginbox').hide();
+                contactView.$el.find('#signupbox').show();
+                console.log("viewing SignUP");
             });
         },
         editUser: function (userid) {
