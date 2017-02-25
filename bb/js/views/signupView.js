@@ -16,6 +16,9 @@ define([
         initialize: function () {
             console.log('signUpView initialized');
             this.data = this.data || {};
+            this.regModel = new signupModel();
+            this.regModel.on('invalid', this.saveErrorCallback);
+            this.regModel.on('valid', this.saveSuccessCallback);
             console.log(this);
             this.render();
         },
@@ -24,31 +27,52 @@ define([
                 event.preventDefault();
             }
             var formData = $(event.currentTarget).serializeObject();
-            var regModel = new signupModel();
-            console.log(formData);
-            regModel.on('invalid',  this.saveErrorCallback);
+            this.regModel.set(formData);
+            
+            if (this.regModel.isValid()) {
 
-            regModel.save(formData, {
-                //attrs: $.extend(true, {}, formData),
-                success: _.bind(this.saveSuccessCallback,this),
-                error: _.bind(this.saveErrorCallback,this)
-            });
+            }
+            else {
+
+            }
         },
         saveSuccessCallback: function (model, reponse) {
-            this.collection.add(model);
-            console.log(this.collection);
+            console.log(model);
         },
         saveErrorCallback: function (model, response) {
-            console.log(model);
-            console.log(response);
-            console.log(this);
-            // this.data = this.data || {};
-            // this.data.errorMessage = "Errors";
+
+            var temp = {
+                "email": "Please fill email field",
+                "firstname": "Please fill firstname field",
+                "lastname": "Please fill lastname field",
+                "passwd": "Please fill Password field"
+            };
+
+            var diff = _.difference(_.keys(temp), _.keys(response));
+
+            _.each(response, function (value, key) {
+                var $element = $("input[name='" + key + "']");
+                var $group = $element.closest('.form-group');
+
+                $group.addClass('has-error');
+                $group.find('.help-block').html(value).removeClass('hidden');
+
+            });
+            if (diff.length > 0) {
+                _.each(diff, function (key) {
+
+                    var $element = $("input[name='" + key + "']");
+                    var $group = $element.closest('.form-group');
+
+                    $group.removeClass('has-error');
+                    $group.find('.help-block').html('').addClass('hidden');
+                });
+            }
+
         },
 
         render: function () {
-            // var abTemplate = _.template($('#contact-us-template').html(), {});
-            // this.$el.html(abTemplate());
+
             this.data.message = "Hello";
             console.log(this.data);
             console.log(this.template);
