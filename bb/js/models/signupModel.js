@@ -26,7 +26,7 @@ define([
                 error_msg.passwd = ('Please fill Password field');
             }
             if (attrs.passwd || attrs.re_pwd) {
-                error_msg.re_pwd = ('Re-enter passwords please, they dont match ');
+                error_msg.re_pwd = ('Re-enter passwords please, they dont match');
             }
             return error_msg;
         }
