@@ -28,9 +28,7 @@ define([
             }
             var formData = $(event.currentTarget).serializeObject();
             this.regModel.set(formData);
-
             if (this.regModel.isValid()) {
-
             }
             else {
 
@@ -45,12 +43,14 @@ define([
                 "email": "Please fill email field",
                 "firstname": "Please fill firstname field",
                 "lastname": "Please fill lastname field",
-                "passwd": "Please fill Password field"
+                "passwd": "Please fill Password field",
+                "re_pwd" : "Re-enter passwords please, they dont match"
             };
 
             var diff = _.difference(_.keys(temp), _.keys(response));
 
             // apply error class to invalid fields
+
             _.each(response, function (value, key) {
                 var $element = $("input[name='" + key + "']");
                 var $group = $element.closest('.form-group');
