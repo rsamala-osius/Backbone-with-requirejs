@@ -28,7 +28,8 @@ define([
             }
             var formData = $(event.currentTarget).serializeObject();
             this.regModel.set(formData);
-            if (this.regModel.isValid()) {
+            if (this.regModel.save(formData)) {
+                this.saveSuccessCallback();
             }
             else {
 
@@ -36,6 +37,9 @@ define([
         },
         saveSuccessCallback: function (model, reponse) {
             console.log(model);
+            this.collection.add(model);
+            console.log(collection);
+            this.render();
         },
         saveErrorCallback: function (model, response) {
 
@@ -44,7 +48,7 @@ define([
                 "firstname": "Please fill firstname field",
                 "lastname": "Please fill lastname field",
                 "passwd": "Please fill Password field",
-                "re_pwd" : "Re-enter passwords please, they dont match"
+                "re_pwd" : "Passwords dont match, re-enter please"
             };
 
             var diff = _.difference(_.keys(temp), _.keys(response));

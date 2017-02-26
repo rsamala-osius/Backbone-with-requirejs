@@ -30,8 +30,8 @@ define([
             if (!attrs.passwd) {
                 error_msg.passwd = ('Please fill Password field');
             }
-            if (attrs.passwd || attrs.re_pwd) {
-                error_msg.re_pwd = ('Re-enter passwords please, they dont match');
+            if (attrs.passwd != attrs.re_pwd) {
+                error_msg.re_pwd = ('Passwords dont match, re-enter please');
             }
             return error_msg;
         }
