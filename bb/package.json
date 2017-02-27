@@ -1,5 +1,5 @@
 {
-  "name": "backbone-requirejs",
+  "name": "backbone",
   "version": "1.0.0",
   "description": "Backbone with requirejs -- handlebar templates",
   "main": "index.js",
@@ -13,6 +13,8 @@
     "underscore": "latest"
   },
   "devDependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
     "grunt": "latest",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-handlebars": "^1.0.0",
@@ -20,7 +22,8 @@
     "grunt-contrib-watch": "^1.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

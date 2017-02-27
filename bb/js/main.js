@@ -1,5 +1,5 @@
 requirejs.config({
-    baseUrl: '../bb/node_modules/',
+    baseUrl: 'node_modules/',
     paths: {
         jquery: 'jquery/dist/jquery',
         backbone: 'backbone/backbone-min',
