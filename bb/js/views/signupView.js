@@ -28,12 +28,11 @@ define([
             }
             var formData = $(event.currentTarget).serializeObject();
             this.regModel.set(formData);
-            if (this.regModel.save(formData)) {
-                this.saveSuccessCallback();
-            }
-            else {
-
-            }
+            this.regModel.save(formData, {
+                attrs: _.extend({}, formData),
+                success: _.bind(this.saveSuccessCallback, this),
+                error: _.bind(this.saveErrorCallback, this)
+            });
         },
         saveSuccessCallback: function (model, reponse) {
             console.log(model);
@@ -48,7 +47,7 @@ define([
                 "firstname": "Please fill firstname field",
                 "lastname": "Please fill lastname field",
                 "passwd": "Please fill Password field",
-                "re_pwd" : "Passwords dont match, re-enter please"
+                "re_pwd": "Passwords dont match, re-enter please"
             };
 
             var diff = _.difference(_.keys(temp), _.keys(response));
