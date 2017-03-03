@@ -4,6 +4,7 @@ define([
 ], function (Backbone, handlebars) {
     'use strict';
     var signupModel = Backbone.Model.extend({
+    	urlRoot : 'http://localhost/phpbackend/singup.php',
         defaults: {
 
         },
