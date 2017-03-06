@@ -7,8 +7,14 @@
     * it consists npm install, grunt run, and node server 
     
 ### Later use 
-  * use grunt watch to make changes in .hbs (handlebar) files 
   * use node server.js to run the file 
+
+### handlebar file changes
+  * use **grunt handlebars** command
+
+### Sass  file changes
+  * use **grunt sass** command
   
+
 #### use http://localhost:4555 to see in browser
     
