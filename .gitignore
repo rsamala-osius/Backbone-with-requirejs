@@ -1,1 +1,9 @@
-.project
+
+node_modules/
+/nbproject/private/
+.vs/
+nbproject/
+.sass-cache/
+*.map
+templates/build/
+css/*.css
