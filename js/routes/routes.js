@@ -44,7 +44,7 @@ define(['backbone'], function (Backbone) {
 
         },
         viewContact: function () {
-            require(['views/ContactUsView'], function (ContactView) {
+            require(['views/contactUsView'], function (ContactView) {
                 var contactView = new ContactView({ el: '#body' });
                 console.log("viewing Contact");
             });
