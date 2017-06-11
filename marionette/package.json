@@ -1,0 +1,46 @@
+{
+  "name": "backbone",
+  "version": "1.0.0",
+  "description": "Backbone with requirejs -- handlebar templates",
+  "main": "index.js",
+  "dependencies": {
+    "backbone": "latest",
+    "bootstrap": "latest",
+    "grunt-cli": "^1.2.0",
+    "handlebars": "^4.0.6",
+    "jquery": "latest",
+    "requirejs": "^2.3.3",
+    "underscore": "latest"
+  },
+  "devDependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "grunt": "latest",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-handlebars": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "grunt && npm start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsamala-osius/Backbone-with-requirejs.git"
+  },
+  "keywords": [
+    "backbone",
+    "jquery",
+    "underscore",
+    "handlebars",
+    "bootstrap"
+  ],
+  "author": "Raju Samala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsamala-osius/Backbone-with-requirejs/issues"
+  },
+  "homepage": "https://github.com/rsamala-osius/Backbone-with-requirejs#readme"
+}
