@@ -7,7 +7,7 @@
     * it consists npm install, grunt run, and node server 
     
 ### Later use 
-  * use node server.js to run the file 
+  * use node server.js to run the application (server) 
 
 ### handlebar file changes
   * use **grunt handlebars** command
