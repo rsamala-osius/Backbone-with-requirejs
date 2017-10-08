@@ -7,3 +7,7 @@ nbproject/
 *.map
 templates/build/
 css/*.css
+.idea/
+.vs/
+
+.sass-cache/
